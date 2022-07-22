@@ -1,38 +1,10 @@
-# create-svelte
+# Svelte Viewer Sample
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A Svelte implementation of the iTwin Viewer. Created with [SvelteKit](https://kit.svelte.dev/).
 
-## Creating a project
+## Getting Started
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Run `npm install` at the root of the repo.
+2. Make a copy of the `.env` file at the root of the repo and name it `.env.local`. Fill in the missing variables. At a minimum, all auth client information as well as an iTwinId and iModelId are required to run the application. If you do not already have an iTwin application client id, you can obtain one [here](https://developer.bentley.com/register/).
+3. Run `npm run dev` at the root of the repo. The application will automatically reload if you change any of the source files.
+4. Navigate to `http://localhost:3000` in your browser.
