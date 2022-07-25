@@ -18,7 +18,11 @@
       iTwinId,
       iModelId
     );
-    if (iModelConnection) {
+    const clientWidth =
+      document.getElementById("viewport-container")?.clientWidth;
+    const clientHeight =
+      document.getElementById("viewport-container")?.clientHeight;
+    if (iModelConnection && clientWidth !== 0 && clientHeight !== 0) {
       // add a listener to selection events
       new ElementSelectionListener(iModelConnection);
 
