@@ -86,3 +86,12 @@
     <Viewport {iTwinId} {iModelId} />
   {/if}
 </main>
+
+<style>
+  #viewer-loading-span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+</style>
