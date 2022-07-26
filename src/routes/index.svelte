@@ -1,3 +1,7 @@
+<!--
+Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+See LICENSE.md in the project root for license terms and full copyright notice.
+-->
 <script lang="ts">
   import { FrontendIModelsAccess } from "@itwin/imodels-access-frontend";
   import { IModelsClient } from "@itwin/imodels-client-management";

@@ -1,3 +1,7 @@
+<!--
+Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+See LICENSE.md in the project root for license terms and full copyright notice.
+-->
 <script lang="ts">
   import {
     CheckpointConnection,
@@ -19,9 +23,9 @@
       iModelId
     );
     const clientWidth =
-      document.getElementById("viewport-container")?.clientWidth;
+      document.getElementById("viewport-container")?.clientWidth ?? 0;
     const clientHeight =
-      document.getElementById("viewport-container")?.clientHeight;
+      document.getElementById("viewport-container")?.clientHeight ?? 0;
     if (iModelConnection && clientWidth !== 0 && clientHeight !== 0) {
       // add a listener to selection events
       new ElementSelectionListener(iModelConnection);
@@ -36,10 +40,18 @@
 </script>
 
 <main>
-  <div
-    bind:this={viewPortContainer}
-    id="viewport-container"
-    style="height: 100vh; width: 100%;"
-  />
+  <div bind:this={viewPortContainer} id="viewport-container" />
   <Tools />
 </main>
+
+<style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+  }
+
+  #viewport-container {
+    height: 100vh;
+    width: 100%;
+  }
+</style>
