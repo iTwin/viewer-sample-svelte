@@ -13,7 +13,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
     IModelTileRpcInterface,
   } from "@itwin/core-common";
   import { IModelApp, LocalExtensionProvider } from "@itwin/core-frontend";
-  // import { PresentationRpcInterface } from '@itwin/presentation-common';
+  import { PresentationRpcInterface } from '@itwin/presentation-common';
   import AuthClient from "../utils/clients/Authorization";
   import ConfigClient from "../utils/clients/Configuration";
   import type { ViewerConfiguration } from "../utils/clients/Configuration";
@@ -62,7 +62,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
         uriPrefix: "https://api.bentley.com",
         info: { title: "imodel/rpc", version: "" },
       },
-      [IModelReadRpcInterface, IModelTileRpcInterface]
+      [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
     );
   };
 

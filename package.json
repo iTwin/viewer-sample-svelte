@@ -12,7 +12,7 @@
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --write --plugin-search-dir=. ."
   },
-  "devDependencies": {
+  "dependencies": {
     "@bentley/icons-generic-webfont": "^1.0.15",
     "@itwin/appui-abstract": "^3.2.0",
     "@itwin/browser-authorization": "^0.5.1",
@@ -26,11 +26,13 @@
     "@itwin/imodels-client-management": "^1.0.1",
     "@itwin/presentation-common": "^3.2.0",
     "@itwin/webgl-compatibility": "^3.2.0",
+    "dotenv-flow": "^3.2.0"
+  },
+  "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
-    "dotenv-flow": "^3.2.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-svelte3": "^4.0.0",

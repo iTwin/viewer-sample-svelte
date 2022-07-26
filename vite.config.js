@@ -1,5 +1,6 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import * as dotenv from "dotenv-flow";
+import { dirname } from "path";
 
 dotenv.config();
 
@@ -8,6 +9,7 @@ const config = {
   plugins: [sveltekit()],
   define: {
     "process.env": process.env,
+    __dirname: { dirname },
   },
   server: {
     port: 3000,
