@@ -13,7 +13,8 @@ See LICENSE.md in the project root for license terms and full copyright notice.
     IModelTileRpcInterface,
   } from "@itwin/core-common";
   import { IModelApp, LocalExtensionProvider } from "@itwin/core-frontend";
-  import { PresentationRpcInterface } from '@itwin/presentation-common';
+  import { PresentationRpcInterface } from "@itwin/presentation-common";
+  import SelectTool from "@itwin/select-tool-extension-sample";
   import AuthClient from "../utils/clients/Authorization";
   import ConfigClient from "../utils/clients/Configuration";
   import type { ViewerConfiguration } from "../utils/clients/Configuration";
@@ -63,6 +64,16 @@ See LICENSE.md in the project root for license terms and full copyright notice.
         info: { title: "imodel/rpc", version: "" },
       },
       [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
+    );
+    await addExtensions();
+  };
+
+  /**
+   * Add iTwin.js extensions
+   */
+  const addExtensions = async () => {
+    await IModelApp.extensionAdmin.addExtension(
+      new LocalExtensionProvider(SelectTool)
     );
   };
 

@@ -15,26 +15,18 @@ See LICENSE.md in the project root for license terms and full copyright notice.
     IModelApp,
     PanViewTool,
     RotateViewTool,
-    SelectionTool,
     WindowAreaTool,
   } from "@itwin/core-frontend";
 
+  // get toolbar items from extensions first
+  // these will include the sample "Select Tool" extension that we loaded in index.ts
+  // this extension is a mirror of the core Select Tool with a different iconSpec that was added solely to show how to add/load an extension
   const toolbarButtons = UiItemsManager.getToolbarButtonItems(
     "",
     StageUsage.General,
     ToolbarUsage.ContentManipulation,
     ToolbarOrientation.Vertical
   ) as ActionButton[];
-
-  // TODO remove once the extension API is ready
-  toolbarButtons.push({
-    id: SelectionTool.toolId,
-    execute: async () => IModelApp.tools.run(SelectionTool.toolId),
-    label: SelectionTool.flyover,
-    description: SelectionTool.description,
-    icon: SelectionTool.iconSpec,
-    itemPriority: 1,
-  });
 
   // add the rotate point tool
   toolbarButtons.push({

@@ -9,7 +9,6 @@ See LICENSE.md in the project root for license terms and full copyright notice.
     ScreenViewport,
     ViewCreator3d,
   } from "@itwin/core-frontend";
-  import { onMount } from "svelte";
   import { ElementSelectionListener } from "../utils/ElementSelectionListener";
   import Tools from "./Tools.svelte";
 
@@ -17,7 +16,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
   export let iModelId: string;
 
   let viewPortContainer: HTMLDivElement;
-  onMount(async () => {
+  const addViewport = async () => {
     const iModelConnection = await CheckpointConnection.openRemote(
       iTwinId,
       iModelId
@@ -36,12 +35,14 @@ See LICENSE.md in the project root for license terms and full copyright notice.
       const vp = ScreenViewport.create(viewPortContainer, viewState);
       IModelApp.viewManager.addViewport(vp);
     }
-  });
+  };
 </script>
 
 <main>
   <div bind:this={viewPortContainer} id="viewport-container" />
-  <Tools />
+  {#await addViewport() then}
+    <Tools />
+  {/await}
 </main>
 
 <style>

@@ -25,6 +25,7 @@
     "@itwin/imodels-access-frontend": "^1.0.1",
     "@itwin/imodels-client-management": "^1.0.1",
     "@itwin/presentation-common": "^3.2.0",
+    "@itwin/select-tool-extension-sample": "file:./extensions/select-tool",
     "@itwin/webgl-compatibility": "^3.2.0",
     "dotenv-flow": "^3.2.0"
   },
