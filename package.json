@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:select-tool": "pnpm --stream --filter \"@itwin/select-tool-extension-sample\" build",
     "build:svelte-app": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" build",
-    "build": "pnpm build:select-tool && pnpm build:svelte-app"
+    "build": "pnpm build:select-tool && pnpm build:svelte-app",
+    "start": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" dev"
   },
   "keywords": [],
   "author": "",
