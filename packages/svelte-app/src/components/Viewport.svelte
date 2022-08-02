@@ -2,6 +2,7 @@
 Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 See LICENSE.md in the project root for license terms and full copyright notice.
 -->
+
 <script lang="ts">
   import {
     CheckpointConnection,
@@ -46,11 +47,6 @@ See LICENSE.md in the project root for license terms and full copyright notice.
 </main>
 
 <style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-  }
-
   #viewport-container {
     height: 100vh;
     width: 100%;

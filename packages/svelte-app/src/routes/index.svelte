@@ -2,6 +2,7 @@
 Copyright (c) Bentley Systems, Incorporated. All rights reserved.
 See LICENSE.md in the project root for license terms and full copyright notice.
 -->
+
 <script lang="ts">
   import { FrontendIModelsAccess } from "@itwin/imodels-access-frontend";
   import { IModelsClient } from "@itwin/imodels-client-management";
@@ -103,6 +104,11 @@ See LICENSE.md in the project root for license terms and full copyright notice.
 </main>
 
 <style>
+  :global(body) {
+    margin: 0;
+    padding: 0;
+  }
+
   #viewer-loading-span {
     position: absolute;
     top: 50%;

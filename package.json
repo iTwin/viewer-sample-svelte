@@ -1,7 +1,12 @@
 {
   "name": "viewer-sample-svelte",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Svelte implementation of the iTwin Viewer.",
+  "author": {
+    "name": "Bentley Systems, Inc.",
+    "url": "http://www.bentley.com"
+  },
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:select-tool": "pnpm --stream --filter \"@itwin/select-tool-extension-sample\" build",
@@ -9,13 +14,8 @@
     "build": "pnpm build:select-tool && pnpm build:svelte-app",
     "start": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "pnpm": {
-    "overrides": {
-      "@itwin/select-tool-extension-sample": "workspace:*",
-      "@itwin/viewer-sample-svelte": "workspace:*"
-    }
+  "dependencies": {
+    "@itwin/select-tool-extension-sample": "workspace:*",
+    "@itwin/viewer-sample-svelte": "workspace:*"
   }
 }
