@@ -14,8 +14,9 @@
     "build": "pnpm build:select-tool && pnpm build:svelte-app",
     "start": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" dev"
   },
-  "dependencies": {
-    "@itwin/select-tool-extension-sample": "workspace:*",
-    "@itwin/viewer-sample-svelte": "workspace:*"
+  "pnpm": {
+    "overrides": {
+      "@itwin/select-tool-extension-sample": "workspace:*"
+    }
   }
 }

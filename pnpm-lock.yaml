@@ -1,14 +1,12 @@
 lockfileVersion: 5.4
 
+overrides:
+  '@itwin/select-tool-extension-sample': workspace:*
+
 importers:
 
   .:
-    specifiers:
-      '@itwin/select-tool-extension-sample': workspace:*
-      '@itwin/viewer-sample-svelte': workspace:*
-    dependencies:
-      '@itwin/select-tool-extension-sample': link:packages/select-tool
-      '@itwin/viewer-sample-svelte': link:packages/svelte-app
+    specifiers: {}
 
   packages/select-tool:
     specifiers:
@@ -53,7 +51,7 @@ importers:
       '@itwin/imodels-access-frontend': ^1.0.1
       '@itwin/imodels-client-management': ^1.0.1
       '@itwin/presentation-common': ^3.2.0
-      '@itwin/select-tool-extension-sample': 0.0.1
+      '@itwin/select-tool-extension-sample': workspace:*
       '@itwin/webgl-compatibility': ^3.2.0
       '@sveltejs/adapter-auto': next
       '@sveltejs/kit': next
