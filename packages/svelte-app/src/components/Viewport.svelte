@@ -1,3 +1,8 @@
+<!--
+Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+See LICENSE.md in the project root for license terms and full copyright notice.
+-->
+
 <script lang="ts">
   import {
     CheckpointConnection,
@@ -5,7 +10,6 @@
     ScreenViewport,
     ViewCreator3d,
   } from "@itwin/core-frontend";
-  import { onMount } from "svelte";
   import { ElementSelectionListener } from "../utils/ElementSelectionListener";
   import Tools from "./Tools.svelte";
 
@@ -13,15 +17,15 @@
   export let iModelId: string;
 
   let viewPortContainer: HTMLDivElement;
-  onMount(async () => {
+  const addViewport = async () => {
     const iModelConnection = await CheckpointConnection.openRemote(
       iTwinId,
       iModelId
     );
     const clientWidth =
-      document.getElementById("viewport-container")?.clientWidth;
+      document.getElementById("viewport-container")?.clientWidth ?? 0;
     const clientHeight =
-      document.getElementById("viewport-container")?.clientHeight;
+      document.getElementById("viewport-container")?.clientHeight ?? 0;
     if (iModelConnection && clientWidth !== 0 && clientHeight !== 0) {
       // add a listener to selection events
       new ElementSelectionListener(iModelConnection);
@@ -32,14 +36,19 @@
       const vp = ScreenViewport.create(viewPortContainer, viewState);
       IModelApp.viewManager.addViewport(vp);
     }
-  });
+  };
 </script>
 
 <main>
-  <div
-    bind:this={viewPortContainer}
-    id="viewport-container"
-    style="height: 100vh; width: 100%;"
-  />
-  <Tools />
+  <div bind:this={viewPortContainer} id="viewport-container" />
+  {#await addViewport() then}
+    <Tools />
+  {/await}
 </main>
+
+<style>
+  #viewport-container {
+    height: 100vh;
+    width: 100%;
+  }
+</style>

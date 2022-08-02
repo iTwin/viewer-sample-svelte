@@ -1,3 +1,8 @@
+<!--
+Copyright (c) Bentley Systems, Incorporated. All rights reserved.
+See LICENSE.md in the project root for license terms and full copyright notice.
+-->
+
 <script lang="ts">
   import {
     StageUsage,
@@ -11,27 +16,18 @@
     IModelApp,
     PanViewTool,
     RotateViewTool,
-    SelectionTool,
     WindowAreaTool,
   } from "@itwin/core-frontend";
-  import "./Tools.css";
 
+  // get toolbar items from extensions first
+  // these will include the sample "Select Tool" extension that we loaded in index.ts
+  // this extension is a mirror of the core Select Tool with a different iconSpec that was added solely to show how to add/load an extension
   const toolbarButtons = UiItemsManager.getToolbarButtonItems(
     "",
     StageUsage.General,
     ToolbarUsage.ContentManipulation,
     ToolbarOrientation.Vertical
   ) as ActionButton[];
-
-  // TODO remove once the extension API is ready
-  toolbarButtons.push({
-    id: SelectionTool.toolId,
-    execute: async () => IModelApp.tools.run(SelectionTool.toolId),
-    label: SelectionTool.flyover,
-    description: SelectionTool.description,
-    icon: SelectionTool.iconSpec,
-    itemPriority: 1,
-  });
 
   // add the rotate point tool
   toolbarButtons.push({
@@ -92,3 +88,45 @@
     {/each}
   </div>
 </main>
+
+<style>
+  .viewer-horizontal-tool-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 25px;
+    top: 25px;
+    width: calc(100% - 50px);
+    height: 45px;
+  }
+
+  .viewer-tool-button {
+    height: 45px;
+    width: 45px;
+    opacity: 0.25;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 11;
+  }
+
+  .viewer-tool-button:hover {
+    opacity: 0.5;
+  }
+
+  .viewer-tool-button .viewer-tool-button-tip {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: smaller;
+    text-align: center;
+    /* Position the tooltip */
+    position: absolute;
+    top: 45px;
+    z-index: 1;
+  }
+
+  .viewer-tool-button:hover .viewer-tool-button-tip {
+    visibility: visible;
+  }
+</style>
