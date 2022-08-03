@@ -10,13 +10,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:select-tool": "pnpm --stream --filter \"@itwin/select-tool-extension-sample\" build",
+    "build:my-extension": "pnpm --stream --filter \"my-extension\" build",
     "build:svelte-app": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" build",
-    "build": "pnpm build:select-tool && pnpm build:svelte-app",
+    "build": "pnpm build:select-tool && pnpm build:my-extension && pnpm build:svelte-app",
     "start": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" dev"
   },
   "pnpm": {
     "overrides": {
-      "@itwin/select-tool-extension-sample": "workspace:*"
+      "@itwin/select-tool-extension-sample": "workspace:*",
+      "my-extension": "workspace:*"
     }
   }
 }

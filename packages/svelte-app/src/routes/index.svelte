@@ -15,7 +15,8 @@ See LICENSE.md in the project root for license terms and full copyright notice.
   } from "@itwin/core-common";
   import { IModelApp, LocalExtensionProvider } from "@itwin/core-frontend";
   import { PresentationRpcInterface } from "@itwin/presentation-common";
-  import SelectTool from "@itwin/select-tool-extension-sample";
+  // import SelectTool from "@itwin/select-tool-extension-sample";
+  import MyExtension from "my-extension";
   import AuthClient from "../utils/clients/Authorization";
   import ConfigClient from "../utils/clients/Configuration";
   import type { ViewerConfiguration } from "../utils/clients/Configuration";
@@ -74,7 +75,8 @@ See LICENSE.md in the project root for license terms and full copyright notice.
    */
   const addExtensions = async () => {
     await IModelApp.extensionAdmin.addExtension(
-      new LocalExtensionProvider(SelectTool)
+      // new LocalExtensionProvider(SelectTool)
+      new LocalExtensionProvider(MyExtension)
     );
   };
 

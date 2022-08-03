@@ -2,11 +2,49 @@ lockfileVersion: 5.4
 
 overrides:
   '@itwin/select-tool-extension-sample': workspace:*
+  my-extension: workspace:*
 
 importers:
 
   .:
     specifiers: {}
+
+  packages/my-extension:
+    specifiers:
+      '@esbuild-plugins/node-globals-polyfill': ~0.1.1
+      '@esbuild-plugins/node-modules-polyfill': ~0.1.2
+      '@itwin/appui-abstract': ^3.2.6
+      '@itwin/build-tools': ^3.2.6
+      '@itwin/core-bentley': ^3.2.6
+      '@itwin/core-common': ^3.2.6
+      '@itwin/core-extension': ^3.2.6
+      '@itwin/core-geometry': ^3.2.6
+      '@itwin/core-orbitgt': ^3.2.6
+      '@itwin/core-quantity': ^3.2.6
+      '@itwin/webgl-compatibility': ^3.2.6
+      esbuild: ^0.13.13
+      npm-run-all: ^4.1.5
+      rimraf: ^3.0.2
+      serve: ^13.0.2
+      typescript: ~4.4.0
+    dependencies:
+      '@itwin/core-extension': 3.2.7_6dbzjux5kks3zldffscizi6mbi
+    devDependencies:
+      '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.13.15
+      '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.13.15
+      '@itwin/appui-abstract': 3.2.7_@itwin+core-bentley@3.2.7
+      '@itwin/build-tools': 3.2.7
+      '@itwin/core-bentley': 3.2.7
+      '@itwin/core-common': 3.2.7_4b3jmr7lrts3iojymje43usbu4
+      '@itwin/core-geometry': 3.2.7
+      '@itwin/core-orbitgt': 3.2.7
+      '@itwin/core-quantity': 3.2.7_@itwin+core-bentley@3.2.7
+      '@itwin/webgl-compatibility': 3.2.7
+      esbuild: 0.13.15
+      npm-run-all: 4.1.5
+      rimraf: 3.0.2
+      serve: 13.0.4
+      typescript: 4.4.4
 
   packages/select-tool:
     specifiers:
@@ -61,6 +99,7 @@ importers:
       eslint: ^8.16.0
       eslint-config-prettier: ^8.3.0
       eslint-plugin-svelte3: ^4.0.0
+      my-extension: workspace:*
       prettier: ^2.6.2
       prettier-plugin-svelte: ^2.7.0
       svelte: ^3.44.0
@@ -85,9 +124,10 @@ importers:
       '@itwin/select-tool-extension-sample': link:../select-tool
       '@itwin/webgl-compatibility': 3.2.7
       dotenv-flow: 3.2.0
+      my-extension: link:../my-extension
     devDependencies:
       '@sveltejs/adapter-auto': 1.0.0-next.64
-      '@sveltejs/kit': 1.0.0-next.401_svelte@3.49.0+vite@3.0.4
+      '@sveltejs/kit': 1.0.0-next.403_svelte@3.49.0+vite@3.0.4
       '@typescript-eslint/eslint-plugin': 5.32.0_iosr3hrei2tubxveewluhu5lhy
       '@typescript-eslint/parser': 5.32.0_qugx7qdu5zevzvxaiqyxfiwquq
       eslint: 8.21.0
@@ -113,10 +153,27 @@ packages:
 
   /@bentley/icons-generic-webfont/1.0.34:
     resolution: {integrity: sha512-5zZgs+himE2vjf39CVlDXMHCFAwSfcoORqJBk3Vji8QVCF8AIX4IX2DO6HlsIAM7szxMNqhz1kd07Xfppro6MA==}
-    dev: false
 
   /@cloudflare/workers-types/3.14.1:
     resolution: {integrity: sha512-B1/plF62pt+H2IJHvApK8fdOJAVsvojvacuac8x8s+JIyqbropMyqNqHTKLm3YD8ZFLGwYeFTudU+PQ7vGvBdA==}
+    dev: true
+
+  /@esbuild-plugins/node-globals-polyfill/0.1.1_esbuild@0.13.15:
+    resolution: {integrity: sha512-MR0oAA+mlnJWrt1RQVQ+4VYuRJW/P2YmRTv1AsplObyvuBMnPHiizUF95HHYiSsMGLhyGtWufaq2XQg6+iurBg==}
+    peerDependencies:
+      esbuild: '*'
+    dependencies:
+      esbuild: 0.13.15
+    dev: true
+
+  /@esbuild-plugins/node-modules-polyfill/0.1.4_esbuild@0.13.15:
+    resolution: {integrity: sha512-uZbcXi0zbmKC/050p3gJnne5Qdzw8vkXIv+c2BW0Lsc1ji1SkrxbKPUy5Efr0blbTu1SL8w4eyfpnSdPg3G0Qg==}
+    peerDependencies:
+      esbuild: '*'
+    dependencies:
+      esbuild: 0.13.15
+      escape-string-regexp: 4.0.0
+      rollup-plugin-node-polyfills: 0.2.1
     dev: true
 
   /@eslint/eslintrc/1.3.0:
@@ -166,7 +223,6 @@ packages:
     dependencies:
       '@bentley/icons-generic-webfont': 1.0.34
       '@itwin/core-bentley': 3.2.7
-    dev: false
 
   /@itwin/browser-authorization/0.5.1_@itwin+core-bentley@3.2.7:
     resolution: {integrity: sha512-TI7nd4I5Lc9MrJnf40kk+u4bTCym1xH9IBJNkvVt+7unjUSbRuUaPS6wC6WTu2DoYbIocEIEBWTqNOR67lAHGA==}
@@ -203,7 +259,6 @@ packages:
 
   /@itwin/core-bentley/3.2.7:
     resolution: {integrity: sha512-gAD+kUKl4r9O/XUYkME5TsIBz24bh98E3URihTS96rqtthkj4+O1+Z6VeZI9KLhrI/m9bB+Di5UCv2PrQHGGTg==}
-    dev: false
 
   /@itwin/core-common/3.2.7_4b3jmr7lrts3iojymje43usbu4:
     resolution: {integrity: sha512-a5etaLEWJyWsRC3jt69QBkZspVzus0pvoA5qO3Qc8EiWe4/rpCvI7mNewT9E6EM7hV0YQAuKqdJ0NLExCivBPg==}
@@ -218,13 +273,28 @@ packages:
       js-base64: 3.7.2
       semver: 5.7.1
       string_decoder: 1.3.0
-    dev: false
 
   /@itwin/core-extension/3.2.7_54dewajalulqwv6ui3dtdgqbqq:
     resolution: {integrity: sha512-F4wCDX+bYxKbVLR4nV5/d41qjkjG9a4J7S55w4jthNhTBFxRhzp6pDiGRVuNTlcF7o35ukXH5MQCcUoAEg1IvQ==}
     dependencies:
       '@itwin/core-common': 3.2.7_4b3jmr7lrts3iojymje43usbu4
       '@itwin/core-frontend': 3.2.7_zpwaf4yiewa6wzxby2axqgho2q
+    transitivePeerDependencies:
+      - '@itwin/appui-abstract'
+      - '@itwin/core-bentley'
+      - '@itwin/core-geometry'
+      - '@itwin/core-orbitgt'
+      - '@itwin/core-quantity'
+      - '@itwin/webgl-compatibility'
+      - encoding
+      - supports-color
+    dev: false
+
+  /@itwin/core-extension/3.2.7_6dbzjux5kks3zldffscizi6mbi:
+    resolution: {integrity: sha512-F4wCDX+bYxKbVLR4nV5/d41qjkjG9a4J7S55w4jthNhTBFxRhzp6pDiGRVuNTlcF7o35ukXH5MQCcUoAEg1IvQ==}
+    dependencies:
+      '@itwin/core-common': 3.2.7_4b3jmr7lrts3iojymje43usbu4
+      '@itwin/core-frontend': 3.2.7_76pdoo4absg7z5fbkfx27574cu
     transitivePeerDependencies:
       - '@itwin/appui-abstract'
       - '@itwin/core-bentley'
@@ -308,7 +378,6 @@ packages:
     dependencies:
       '@itwin/core-bentley': 3.2.7
       flatbuffers: 1.12.0
-    dev: false
 
   /@itwin/core-i18n/3.2.7_@itwin+core-bentley@3.2.7:
     resolution: {integrity: sha512-jyD+aGAeqqovu2XNigwrGjkdaWguLAIeqrQDaq91zgG9Jw1J4xaPy9/il2ZNw2ar85iUM9km9Uy3934wc3a2LA==}
@@ -326,7 +395,6 @@ packages:
 
   /@itwin/core-orbitgt/3.2.7:
     resolution: {integrity: sha512-l8ItPtGmtEfya1EuoduWkT/+XXnqOWenQCLgQK4jaHP9t2mDPcW/itr6Sgrg/z3I2Tk5cZOHA+dF0+3xkxxzsA==}
-    dev: false
 
   /@itwin/core-quantity/3.2.7_@itwin+core-bentley@3.2.7:
     resolution: {integrity: sha512-F3xncVm9IjN3th8W5Kk9phdy25VPbdBV/h2F8bfbLgIW+BLnJrSkcTmqt4z4pZU174QgbayFDzgSUM2r1AYG8g==}
@@ -334,7 +402,6 @@ packages:
       '@itwin/core-bentley': ^3.2.7
     dependencies:
       '@itwin/core-bentley': 3.2.7
-    dev: false
 
   /@itwin/core-telemetry/3.2.7_@itwin+core-geometry@3.2.7:
     resolution: {integrity: sha512-DKYvhLvOrl4shxE23OgvSam0FngVPPbfzwX3P0Fv8SS4i/odGEOqTKBClqdwNFA9aA7K3yTjxkJVHYPyVDiKfA==}
@@ -384,7 +451,6 @@ packages:
     resolution: {integrity: sha512-fQ7JVvxmrwd0l7z7OZ3nLXHbrrdFa/6MX91yGDxtsoiQsoygnu0ilfrxEDx3QTIGpYmB8wRHlfr58DWcEAXm5A==}
     dependencies:
       '@itwin/core-bentley': 3.2.7
-    dev: false
 
   /@jridgewell/resolve-uri/3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -593,8 +659,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.401_svelte@3.49.0+vite@3.0.4:
-    resolution: {integrity: sha512-VrpFtSSu1ADRVWWDxLl218GKf9l+TA7tNCCAmVFAuJdj5zVxPgJflu4Dh1p5C4efKP+x1v6W5nvxmNkbZLPoag==}
+  /@sveltejs/kit/1.0.0-next.403_svelte@3.49.0+vite@3.0.4:
+    resolution: {integrity: sha512-pKlmthl1SZkbx671Jp+LBoRne0vNzsjSgta9iRhqW/bt/0mx/IjlMd/NOeLuJGo30dAJdefrySoSamiaq47M/g==}
     engines: {node: '>=16.9'}
     hasBin: true
     requiresBuild: true
@@ -1010,7 +1076,6 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-    dev: false
 
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
@@ -1070,7 +1135,6 @@ packages:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    dev: false
 
   /bytes/3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==}
@@ -2189,7 +2253,6 @@ packages:
 
   /flatbuffers/1.12.0:
     resolution: {integrity: sha512-c7CZADjRcl6j0PlvFy0ZqXQ67qSEZfrVPynmnL+2zPc+NtMvrF8Y0QceMo7QqnSPc7+uWjUIAbvCQ5WIKlMVdQ==}
-    dev: false
 
   /flatted/3.2.6:
     resolution: {integrity: sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==}
@@ -2524,7 +2587,6 @@ packages:
 
   /ieee754/1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
-    dev: false
 
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
@@ -2725,7 +2787,6 @@ packages:
 
   /js-base64/3.7.2:
     resolution: {integrity: sha512-NnRs6dsyqUXejqk/yv2aiXlAvOs56sLkX6nUdeaNezI5LFFLlsZjOThmwnrcwh5ZZRwZlCMnVAY3CvhIhoVEKQ==}
-    dev: false
 
   /js-yaml/4.0.0:
     resolution: {integrity: sha512-pqon0s+4ScYUvX30wxQi3PogGFAlUyH0awepWvwkj4jD4v+ova3RiYw8bmA6x2rDrEaj8i/oWKoRxpVNW+Re8Q==}
@@ -3538,6 +3599,21 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.2.3
+    dev: true
+
+  /rollup-plugin-inject/3.0.2:
+    resolution: {integrity: sha512-ptg9PQwzs3orn4jkgXJ74bfs5vYz1NCZlSQMBUA0wKcGp5i5pA1AO3fOUEte8enhGUC+iapTCzEWw2jEFFUO/w==}
+    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+    dependencies:
+      estree-walker: 0.6.1
+      magic-string: 0.25.9
+      rollup-pluginutils: 2.8.2
+    dev: true
+
+  /rollup-plugin-node-polyfills/0.2.1:
+    resolution: {integrity: sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==}
+    dependencies:
+      rollup-plugin-inject: 3.0.2
     dev: true
 
   /rollup-pluginutils/2.8.2:

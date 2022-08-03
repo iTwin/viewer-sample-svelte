@@ -32,6 +32,7 @@
     "@itwin/imodels-client-management": "^1.0.1",
     "@itwin/presentation-common": "^3.2.0",
     "@itwin/select-tool-extension-sample": "0.0.1",
+    "my-extension": "0.1.0",
     "@itwin/webgl-compatibility": "^3.2.0",
     "dotenv-flow": "^3.2.0"
   },
