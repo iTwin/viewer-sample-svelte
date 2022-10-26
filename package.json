@@ -8,15 +8,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "pnpm --filter @itwin/select-tool-extension-sample build",
     "build:select-tool": "pnpm --stream --filter \"@itwin/select-tool-extension-sample\" build",
     "build:svelte-app": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" build",
     "build": "pnpm build:select-tool && pnpm build:svelte-app",
-    "start": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" dev"
-  },
-  "pnpm": {
-    "overrides": {
-      "@itwin/select-tool-extension-sample": "workspace:*"
-    }
+    "start": "pnpm --filter @itwin/viewer-sample-svelte dev"
   }
 }

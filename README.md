@@ -1,4 +1,4 @@
-# Svelte Viewer Sample
+# Svelte iTwin Viewer Sample
 
 A Svelte implementation of the iTwin Viewer. Created with [SvelteKit](https://kit.svelte.dev/).
 
