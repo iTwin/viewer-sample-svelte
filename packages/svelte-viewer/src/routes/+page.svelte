@@ -70,7 +70,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
       },
       [IModelReadRpcInterface, IModelTileRpcInterface, PresentationRpcInterface]
     );
-    // await addExtensions();
+    await addExtensions();
   };
 
   /**
