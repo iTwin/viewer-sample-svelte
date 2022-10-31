@@ -10,8 +10,8 @@
   "scripts": {
     "postinstall": "pnpm --filter @itwin/select-tool-extension-sample build",
     "build:select-tool": "pnpm --stream --filter \"@itwin/select-tool-extension-sample\" build",
-    "build:svelte-app": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" build",
-    "build": "pnpm build:select-tool && pnpm build:svelte-app",
+    "build:svelte-viewer": "pnpm --stream --filter \"@itwin/viewer-sample-svelte\" build",
+    "build": "pnpm build:select-tool && pnpm build:svelte-viewer",
     "start": "pnpm --filter @itwin/viewer-sample-svelte dev"
   }
 }

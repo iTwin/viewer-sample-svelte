@@ -1,5 +1,5 @@
 {
-  "name": "svelte-viewer",
+  "name": "@itwin/viewer-sample-svelte",
   "version": "0.0.1",
   "description": "A Svelte implementation of the iTwin Viewer.",
   "license": "MIT",
