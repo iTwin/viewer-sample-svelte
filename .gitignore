@@ -65,3 +65,6 @@ jspm_packages/
 .svelte-kit/
 dist/
 lib/
+
+packages/svelte-viewer/static
+!packages/svelte-viewer/static/favicon.ico
