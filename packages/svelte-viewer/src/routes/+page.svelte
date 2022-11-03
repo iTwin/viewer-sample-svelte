@@ -59,9 +59,7 @@ See LICENSE.md in the project root for license terms and full copyright notice.
           value: config.map?.bingKey ?? "",
         },
       },
-      localization: new ITwinLocalization({detectorOptions: {
-        order: []
-      }})
+      localization: new ITwinLocalization()
     });
     BentleyCloudRpcManager.initializeClient(
       {
